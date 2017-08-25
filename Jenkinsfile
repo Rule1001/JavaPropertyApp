@@ -1,10 +1,7 @@
 node {
 
-   stage('Slack started') {
-      slackSend channel: "#northcoders-java", message: "The Empire is Forming"
-   }
    stage('Preparation') {
-      git 'https://github.com/Rule1001/React_Java_Back_end.git'
+      git 'https://github.com/Rule1001/JavaPropertyApp.git'
    }
    stage('Clean') {
       sh "mvn -Dmaven.test.failure.ignore clean"
