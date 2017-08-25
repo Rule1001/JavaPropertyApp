@@ -39,5 +39,12 @@ public class PropertyModel {
         this.propertyName = propertyName;
     }
 
-
+    @Column(name ="property_type")
+    @NotEmpty (message = "You must specify a Property_type")
+    public String getPropertyType() {
+        return propertyType;
+    }
+    public void setPropertyType(String propertyType) {
+        this.propertyType = propertyType;
+    }
 }
