@@ -51,7 +51,19 @@ public class PropertyRestController {
         return property;
     }
 
+    //add a property
+    @CrossOrigin("*")
+    @RequestMapping(value="/properties/{propertyId}", method = RequestMethod.POST)
+    public void saveProperty(@Valid @RequestBody PropertyModel property, HttpServletResponse response ) {
 
+        logger.debug("property add has STARTED");
+
+        propertyRepository.save(property);
+
+        logger.debug("new property succesfully added");
+
+        response.setStatus(HttpServletResponse.SC_ACCEPTED);
+    }
 
 
 
