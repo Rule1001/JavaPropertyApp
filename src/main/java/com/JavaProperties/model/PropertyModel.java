@@ -17,7 +17,7 @@ public class PropertyModel {
     private String location = null;
     private String propertyDescription = null;
     private String imageUrl = null;
-    private boolean forSale = false;
+    private String forSale = null;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -87,7 +87,7 @@ public class PropertyModel {
 
     @Column(name ="forSale")
     @NotEmpty (message = "You must advise if property is for sale")
-    public Boolean getForSalel() {
+    public String getForSalel() {
         return forSale;
     }
     public void setForSale(String imageUrl) {

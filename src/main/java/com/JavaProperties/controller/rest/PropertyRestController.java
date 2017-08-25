@@ -95,6 +95,33 @@ public class PropertyRestController {
         logger.debug("All properties deleted");
     }
 
+    //update property
+    @CrossOrigin("*")
+    @RequestMapping(value = "/properties/{propertyId}", method = RequestMethod.PUT)
+    public void updateProperty(@PathVariable Long propertyId, @RequestBody PropertyModel property, HttpServletResponse response) {
+
+        logger.debug("updating property {}", propertyId);
+
+        propertyRepository.findOne(propertyId);
+
+        if (property==null) {
+            logger.debug("property with id {} not found", propertyId);
+            response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+        }
+
+        property.setPropertyId(property.getPropertyId());
+        property.setPropertyName(property.getPropertyName());
+        property.setPropertyType(property.getPropertyType());
+        property.setNumBedrooms(property.getNumBedrooms());
+        property.setLocation(property.getLocation());
+        property.setPropertyDescription(property.getPropertyDescription());
+        property.setForSale(property.getForSalel());
+
+        propertyRepository.save(property);
+        logger.debug("property with id {} updated", propertyId);
+        response.setStatus(HttpServletResponse.SC_ACCEPTED);
+    }
+
 
 
 
