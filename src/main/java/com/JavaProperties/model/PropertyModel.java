@@ -18,4 +18,17 @@ public class PropertyModel {
     private String PropertyDescription = null;
     private boolean forSale = false;
     private String imageUrl = null;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+
+    @Column(name ="property_id")
+    public Long getPropertyId() {
+        return propertyId;
+    }
+    public void setPropertyId(Long propertyId){
+        this.propertyId=propertyId;
+    }
+
+
 }
