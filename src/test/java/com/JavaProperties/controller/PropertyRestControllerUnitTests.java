@@ -104,6 +104,30 @@ public class PropertyRestControllerUnitTests {
 
     }
 
+    @Test
+    public void saveProperty() throws Exception {
+        PropertyModel property = new PropertyModel();
+        property.setPropertyId(1L);
+        property.setPropertyType("House");
+        property.setNumBedrooms(3);
+        property.setLocation("Sale");
+        property.setForSale("Yes");
+        property.setPropertyDescription("test");
+        property.setPropertyName("willows");
+        property.setImageUrl("test");
+
+        String carJson = new ObjectMapper().writeValueAsString(property);
+
+        Mockito.when(propertyRepository.save(property)).thenReturn(property);
+
+        RequestBuilder requestBuilder = MockMvcRequestBuilders.post("/properties/-1").contentType(MediaType.APPLICATION_JSON).content(carJson);
+
+        MvcResult result = mockMvc.perform(requestBuilder).andReturn();
+
+        Mockito.verify(propertyRepository, Mockito.times(1)).save(Mockito.any(PropertyModel.class));
+        Assert.assertEquals(202, result.getResponse().getStatus());
+    }
+
 
 
 
