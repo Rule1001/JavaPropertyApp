@@ -15,7 +15,7 @@ public class PropertyModel {
     private String propertyType = null;
     private int bedrooms;
     private String location = null;
-    private String PropertyDescription = null;
+    private String propertyDescription = null;
     private boolean forSale = false;
     private String imageUrl = null;
 
@@ -65,5 +65,23 @@ public class PropertyModel {
     }
     public void setLocation(String location) {
         this.location = location;
+    }
+
+    @Column(name ="property_description")
+    @NotEmpty (message = "You must specify a Property_description")
+    public String getPropertyDescription() {
+        return propertyDescription;
+    }
+    public void setPropertyDescription(String propertyDescription) {
+        this.propertyDescription = propertyDescription;
+    }
+
+    @Column(name ="imageUrl")
+    @NotEmpty (message = "You must add a Url image")
+    public String getImageUrl() {
+        return imageUrl;
+    }
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 }
