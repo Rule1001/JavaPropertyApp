@@ -11,5 +11,18 @@ import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 import java.util.List;
 
+
+@RestController
 public class PropertyRestController {
+
+    private final Logger logger = LoggerFactory.getLogger(PropertyRestController.class);
+
+    @Autowired
+    protected PropertyRepository propertyRepository;
+
+
+
+
+
+
 }
