@@ -33,6 +33,33 @@ public class PropertyRestController {
 
     }
 
+    //get a property
+    @CrossOrigin("*")
+    @RequestMapping(value="/properties/{propertyId}", method = RequestMethod.GET)
+    public PropertyModel getIndividulaProperty(@PathVariable Long propertyId) {
+
+        logger.debug("get individual property STARTED");
+
+        PropertyModel property = propertyRepository.findOne(propertyId);
+
+        if(property == null) {
+            logger.warn("property {} does not exist", propertyId);
+        }
+
+        logger.debug("get individual property ENDED");
+
+        return property;
+    }
+
+
+
+
+
+
+
+
+
+
 
 
 
