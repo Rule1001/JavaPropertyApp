@@ -11,6 +11,7 @@ node {
    }
 
    stage('Docker Build') {
+      sh "whoami"
       sh "docker build -t myproperties ."
    }
 
