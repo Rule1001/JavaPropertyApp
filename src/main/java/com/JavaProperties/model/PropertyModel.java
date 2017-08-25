@@ -87,10 +87,10 @@ public class PropertyModel {
 
     @Column(name ="forSale")
     @NotEmpty (message = "You must advise if property is for sale")
-    public String getForSalel() {
+    public String getForSale() {
         return forSale;
     }
-    public void setForSale(String imageUrl) {
+    public void setForSale(String forSale) {
         this.forSale = forSale;
     }
 }

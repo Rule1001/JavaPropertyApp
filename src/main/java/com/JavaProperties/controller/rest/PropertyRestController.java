@@ -115,7 +115,7 @@ public class PropertyRestController {
         property.setNumBedrooms(property.getNumBedrooms());
         property.setLocation(property.getLocation());
         property.setPropertyDescription(property.getPropertyDescription());
-        property.setForSale(property.getForSalel());
+        property.setForSale(property.getForSale());
 
         propertyRepository.save(property);
         logger.debug("property with id {} updated", propertyId);
