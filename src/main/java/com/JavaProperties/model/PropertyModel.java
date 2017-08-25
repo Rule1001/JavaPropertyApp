@@ -30,5 +30,14 @@ public class PropertyModel {
         this.propertyId=propertyId;
     }
 
+    @Column(name ="property_name")
+    @NotEmpty (message = "You must specify a Property_name")
+    public String getPropertyName() {
+        return propertyName;
+    }
+    public void setPropertyName(String propertyName) {
+        this.propertyName = propertyName;
+    }
+
 
 }
