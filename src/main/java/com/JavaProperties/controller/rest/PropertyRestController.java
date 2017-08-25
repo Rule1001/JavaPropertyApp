@@ -65,6 +65,26 @@ public class PropertyRestController {
         response.setStatus(HttpServletResponse.SC_ACCEPTED);
     }
 
+    //delete a property
+    @CrossOrigin("*")
+    @RequestMapping(value = "/properties/{propertyId}", method = RequestMethod.DELETE)
+    public void deleteProperty(@PathVariable Long propertyId, HttpServletResponse response) {
+
+        logger.debug("Fetching & Deleting Property with propertyId {}", propertyId);
+
+        PropertyModel property = propertyRepository.findOne(propertyId);
+        if (property == null) {
+            logger.debug("Unable to delete. Property with propertyID {} not found", propertyId);
+            response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+
+        } else {
+            propertyRepository.delete(property);
+            logger.debug("property deleted");
+            response.setStatus(HttpServletResponse.SC_ACCEPTED);
+
+        }
+    }
+
 
 
 
