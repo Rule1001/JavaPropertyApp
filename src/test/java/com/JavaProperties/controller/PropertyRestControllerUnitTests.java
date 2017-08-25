@@ -23,5 +23,47 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
+@RunWith(SpringRunner.class)
+@WebMvcTest(value = PropertyRestController.class)
+
 public class PropertyRestControllerUnitTests {
+
+    @Autowired
+    private MockMvc mockMvc;
+
+    @MockBean
+    private PropertyRepository propertyRepository;
+
+    @Test
+    public void showIndividualProperty() throws Exception {
+        PropertyModel property = new PropertyModel();
+        property.setPropertyId(1L);
+        property.setPropertyType("House");
+        property.setNumBedrooms(3);
+        property.setLocation("Sale");
+        property.setForSale("Yes");
+        property.setPropertyDescription("test");
+        property.setPropertyName("willows");
+        property.setImageUrl("test");
+
+
+        Mockito.when(propertyRepository.findOne(Mockito.anyLong())).thenReturn(property);
+
+        RequestBuilder requestBuilder = MockMvcRequestBuilders.get("/properties/1").accept(MediaType.APPLICATION_JSON);
+
+        MvcResult result = mockMvc.perform(requestBuilder).andReturn();
+
+        String expected = "{propertyId:1, propertyType:House, numBedrooms:3, location:Sale, forSale:Yes, propertyDescription:test, propertyName:willows, imageUrl:test}";
+
+        System.out.println(result.getResponse().getContentAsString());
+
+        JSONAssert.assertEquals(expected, result.getResponse().getContentAsString(), false);
+
+    }
+
+
+
+
+
+
 }
