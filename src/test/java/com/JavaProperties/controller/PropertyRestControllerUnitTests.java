@@ -39,7 +39,7 @@ public class PropertyRestControllerUnitTests {
         PropertyModel property = new PropertyModel();
         property.setPropertyId(1L);
         property.setPropertyType("House");
-        property.setNumBedrooms(3);
+        property.setBedrooms(3);
         property.setLocation("Sale");
         property.setForSale("Yes");
         property.setPropertyDescription("test");
@@ -67,7 +67,7 @@ public class PropertyRestControllerUnitTests {
         PropertyModel property1 = new PropertyModel();
         property1.setPropertyId(1L);
         property1.setPropertyType("House");
-        property1.setNumBedrooms(3);
+        property1.setBedrooms(3);
         property1.setLocation("Sale");
         property1.setForSale("Yes");
         property1.setPropertyDescription("test");
@@ -77,7 +77,7 @@ public class PropertyRestControllerUnitTests {
         PropertyModel property2 = new PropertyModel();
         property2.setPropertyId(1L);
         property2.setPropertyType("cottage");
-        property2.setNumBedrooms(2);
+        property2.setBedrooms(2);
         property2.setLocation("Altrincham");
         property2.setForSale("Yes");
         property2.setPropertyDescription("test");
@@ -109,7 +109,7 @@ public class PropertyRestControllerUnitTests {
         PropertyModel property = new PropertyModel();
         property.setPropertyId(1L);
         property.setPropertyType("House");
-        property.setNumBedrooms(3);
+        property.setBedrooms(3);
         property.setLocation("Sale");
         property.setForSale("Yes");
         property.setPropertyDescription("test");

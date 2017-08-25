@@ -112,7 +112,7 @@ public class PropertyRestController {
         property.setPropertyId(property.getPropertyId());
         property.setPropertyName(property.getPropertyName());
         property.setPropertyType(property.getPropertyType());
-        property.setNumBedrooms(property.getNumBedrooms());
+        property.setBedrooms(property.getBedrooms());
         property.setLocation(property.getLocation());
         property.setPropertyDescription(property.getPropertyDescription());
         property.setForSale(property.getForSale());

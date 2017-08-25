@@ -7,7 +7,7 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.Max;
 
 
-@Entity
+@Entity(name="property")
 public class PropertyModel {
 
     private Long propertyId = null;
@@ -51,10 +51,10 @@ public class PropertyModel {
     @Column(name ="bedrooms")
     @Min(value = 1, message = "The bedrooms should be at least 1")
     @Max(value = 10, message = "The bedrooms can not be more than 10")
-    public int getNumBedrooms() {
+    public int getBedrooms() {
         return bedrooms;
     }
-    public void setNumBedrooms(int bedrooms) {
+    public void setBedrooms(int bedrooms) {
         this.bedrooms = bedrooms;
     }
 
@@ -76,7 +76,7 @@ public class PropertyModel {
         this.propertyDescription = propertyDescription;
     }
 
-    @Column(name ="imageUrl")
+    @Column(name ="image_url")
     @NotEmpty (message = "You must add a Url image")
     public String getImageUrl() {
         return imageUrl;
@@ -85,7 +85,7 @@ public class PropertyModel {
         this.imageUrl = imageUrl;
     }
 
-    @Column(name ="forSale")
+    @Column(name ="for_sale")
     @NotEmpty (message = "You must advise if property is for sale")
     public String getForSale() {
         return forSale;
