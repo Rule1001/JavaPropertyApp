@@ -16,8 +16,8 @@ public class PropertyModel {
     private int bedrooms;
     private String location = null;
     private String propertyDescription = null;
-    private boolean forSale = false;
     private String imageUrl = null;
+    private boolean forSale = false;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -83,5 +83,14 @@ public class PropertyModel {
     }
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
+    }
+
+    @Column(name ="forSale")
+    @NotEmpty (message = "You must advise if property is for sale")
+    public Boolean getForSalel() {
+        return forSale;
+    }
+    public void setForSale(String imageUrl) {
+        this.forSale = forSale;
     }
 }
