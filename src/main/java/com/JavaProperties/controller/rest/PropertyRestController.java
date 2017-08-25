@@ -85,6 +85,16 @@ public class PropertyRestController {
         }
     }
 
+    //delete all properties
+    @CrossOrigin("*")
+    @RequestMapping(value = "/properties", method = RequestMethod.DELETE)
+    public void deleteAllProperties() {
+        logger.debug("Starting deleting all properties");
+
+        propertyRepository.deleteAll();
+        logger.debug("All properties deleted");
+    }
+
 
 
 
