@@ -20,7 +20,18 @@ public class PropertyRestController {
     @Autowired
     protected PropertyRepository propertyRepository;
 
+    //get all properties
+    @CrossOrigin("*")
+    @RequestMapping(value="/properties", method = RequestMethod.GET)
+    public List<PropertyModel> getAllProperties() {
 
+        List<PropertyModel> properties = (List<PropertyModel>)propertyRepository.findAll();
+
+        logger.debug("get all properties {}", properties);
+
+        return properties;
+
+    }
 
 
 
