@@ -61,7 +61,48 @@ public class PropertyRestControllerUnitTests {
 
     }
 
+    @Test
+    public void showAllProperties() throws Exception {
 
+        PropertyModel property1 = new PropertyModel();
+        property1.setPropertyId(1L);
+        property1.setPropertyType("House");
+        property1.setNumBedrooms(3);
+        property1.setLocation("Sale");
+        property1.setForSale("Yes");
+        property1.setPropertyDescription("test");
+        property1.setPropertyName("willows");
+        property1.setImageUrl("test");
+
+        PropertyModel property2 = new PropertyModel();
+        property2.setPropertyId(1L);
+        property2.setPropertyType("cottage");
+        property2.setNumBedrooms(2);
+        property2.setLocation("Altrincham");
+        property2.setForSale("Yes");
+        property2.setPropertyDescription("test");
+        property2.setPropertyName("mansion");
+        property2.setImageUrl("test");
+
+        List<PropertyModel> property = new ArrayList<PropertyModel>();
+
+        property.add(property1);
+        property.add(property2);
+
+
+        Mockito.when(propertyRepository.findAll()).thenReturn(property);
+
+        RequestBuilder requestBuilder = MockMvcRequestBuilders.get("/properties").accept(MediaType.APPLICATION_JSON);
+
+        MvcResult result = mockMvc.perform(requestBuilder).andReturn();
+
+        String expected = "[{\"propertyId\":1,\"propertyName\":\"willows\",\"propertyType\":\"House\",\"location\":\"Sale\",\"propertyDescription\":\"test\",\"imageUrl\":\"test\",\"forSale\":\"Yes\",\"numBedrooms\":3},{\"propertyId\":1,\"propertyName\":\"mansion\",\"propertyType\":\"cottage\",\"location\":\"Altrincham\",\"propertyDescription\":\"test\",\"imageUrl\":\"test\",\"forSale\":\"Yes\",\"numBedrooms\":2}]";
+
+        System.out.println(result.getResponse().getContentAsString());
+
+        JSONAssert.assertEquals(expected, result.getResponse().getContentAsString(), false);
+
+    }
 
 
 
